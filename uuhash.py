@@ -1,14 +1,9 @@
 #!/usr/bin/env python
 
+import os
 import hashlib
 import binascii
 import struct
-
-import os
-import sys
-import glob
-import time
-import base64
 
 __all__ = ["UUHash"]
 
@@ -57,6 +52,11 @@ def UUHash(fobj):
 	return md5hash + struct.pack("<I", smallhash)
 
 if __name__ == '__main__':
+	import sys
+	import glob
+	import base64
+	import time
+
 	files = []
 
 	for globbable in sys.argv[1:]:
