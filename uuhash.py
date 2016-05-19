@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 
 import os
 import hashlib
@@ -65,7 +65,7 @@ if __name__ == '__main__':
 	for fname in files:
 		if not os.path.isfile(fname): continue
 		t0 = time.time()
-		hash = UUHash(file(fname, 'rb'))
+		hash = UUHash(open(fname, 'rb'))
 		t1 = time.time()
 		encoded = base64.b64encode(hash)
-		print "%-28s" % encoded, hash.encode('hex').upper(), fname
+		print("{} {} {}".format(encoded.decode(), hash.hex(), fname))
